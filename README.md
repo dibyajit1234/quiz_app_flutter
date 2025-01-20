@@ -20,7 +20,7 @@ Installation:-
 
 1. Clone the repository: git clone https://github.com/dibyajit1234/quiz_app_flutter.git
 
-cd quiz_app
+    cd quiz_app
 
 2. Install dependencies: flutter pub get
 3. Run the app : flutter run
@@ -28,6 +28,7 @@ cd quiz_app
 Project Structure:-
 
 lib/
+
 ├── main.dart
 
 ├── database.dart
