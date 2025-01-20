@@ -18,9 +18,7 @@ Getting Started:-
 
 Installation:-
 
-1. Clone the repository:
-
-git clone https://github.com/dibyajit1234/quiz_app_flutter.git
+1. Clone the repository: git clone https://github.com/dibyajit1234/quiz_app_flutter.git
 cd quiz_app
 
 2. Install dependencies:
