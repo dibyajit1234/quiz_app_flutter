@@ -29,6 +29,7 @@ class _StartPageState extends State<StartPage> {
           quizData = json.decode(response.body);
           isLoading = false;
         });
+        // ignore: use_build_context_synchronously
         context.goNamed('quiz', extra: quizData);
       } else {
         setState(() {
