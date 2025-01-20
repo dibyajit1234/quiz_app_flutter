@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz_app/pages/answers.dart';
 import 'package:quiz_app/pages/start_page.dart';
@@ -8,10 +7,8 @@ import 'package:quiz_app/pages/result_page.dart';
 enum Approuter { home, quiz, result, score }
 
 GoRouter goRouter() {
-
   return GoRouter(
-      initialLocation:
-  "/",
+    initialLocation: "/",
     routes: [
       GoRoute(
         path: '/',

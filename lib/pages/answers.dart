@@ -12,9 +12,8 @@ class Answers extends StatelessWidget {
     final data = Provider.of<FinalResult>(context).data;
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 35,
         leading: IconButton(
-            onPressed: () => context.pop(), icon: Icon(Icons.cancel_outlined)),
+            onPressed: () => context.pop(), icon: Icon(Icons.arrow_back)),
       ),
       body: Expanded(
           child: ListView.builder(
@@ -31,7 +30,10 @@ class Answers extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Q${index + 1}. ${data[index]["question"]}"),
+                          Text(
+                            "Q${index + 1}. ${data[index]["question"]}",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -45,11 +47,15 @@ class Answers extends StatelessWidget {
                                   color: data[index]['correct'] == 0
                                       ? Colors.green
                                       : data[index]['selected'] == 0
-                                          ? Colors.red
+                                          ? const Color.fromARGB(
+                                              255, 248, 70, 16)
                                           : Colors.grey,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text("1.${data[index]["opt1"]}"),
+                                    child: Text("1.${data[index]["opt1"]}",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
                                   ),
                                 ),
                               ],
@@ -68,11 +74,17 @@ class Answers extends StatelessWidget {
                                   color: data[index]['correct'] == 1
                                       ? Colors.green
                                       : data[index]['selected'] == 1
-                                          ? Colors.red
+                                          ? const Color.fromARGB(
+                                              255, 248, 70, 16)
                                           : Colors.grey,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text("2.${data[index]["opt2"]}"),
+                                    child: Text(
+                                      "2.${data[index]["opt2"]}",
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -91,11 +103,15 @@ class Answers extends StatelessWidget {
                                   color: data[index]['correct'] == 2
                                       ? Colors.green
                                       : data[index]['selected'] == 2
-                                          ? Colors.red
+                                          ? const Color.fromARGB(
+                                              255, 248, 70, 16)
                                           : Colors.grey,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text("3.${data[index]["opt3"]}"),
+                                    child: Text("3.${data[index]["opt3"]}",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
                                   ),
                                 ),
                               ],
@@ -114,11 +130,15 @@ class Answers extends StatelessWidget {
                                   color: data[index]['correct'] == 3
                                       ? Colors.green
                                       : data[index]['selected'] == 3
-                                          ? Colors.red
+                                          ? const Color.fromARGB(
+                                              255, 248, 70, 16)
                                           : Colors.grey,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text("4..${data[index]["opt4"]}"),
+                                    child: Text("4..${data[index]["opt4"]}",
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontWeight: FontWeight.bold)),
                                   ),
                                 ),
                               ],

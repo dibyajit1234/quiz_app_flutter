@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:quiz_app/database.dart';
-import 'package:quiz_app/pages/result_page.dart';
-import 'package:quiz_app/pages/start_page.dart';
 
 class Quiz extends StatefulWidget {
   final Map<String, dynamic> quizData;
@@ -45,7 +43,11 @@ class _QuizState extends State<Quiz> {
                 showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                          title: Text("Do want to quit the game ?"),
+                          title: Text(
+                            "Do want to quit the game ?",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
                           actions: [
                             TextButton(
                                 onPressed: () {
@@ -53,39 +55,41 @@ class _QuizState extends State<Quiz> {
                                       .removeData();
                                   context.goNamed('home');
                                 },
-                                child: Text("Yes")),
+                                child: Text(
+                                  "Yes",
+                                  style: TextStyle(color: Colors.red),
+                                )),
                             TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text("No"))
+                                child: Text("No",
+                                    style: TextStyle(color: Colors.green)))
                           ],
                         ));
               },
-              icon: Icon(Icons.cancel_outlined)),
-          title: Center(child: Text("quiz")),
+              icon: Icon(Icons.arrow_back)),
+          title: Text(
+            "quit",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
           actions: [
-            Icon(Icons.star),
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Text(
+                "${count + 1}/10",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            )
           ],
         ),
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(Icons.trolley),
-                      SizedBox(
-                        child: Text("${count + 1}/10"),
-                      )
-                    ],
-                  ),
-                ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: SizedBox(
@@ -93,7 +97,10 @@ class _QuizState extends State<Quiz> {
                       width: double.infinity,
                       child: Center(
                         child: Text(
-                            "Q. ${quizData["questions"][count]["description"]} "),
+                          "Q. ${quizData["questions"][count]["description"]} ",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
                       )),
                 ),
                 SizedBox(
@@ -108,11 +115,17 @@ class _QuizState extends State<Quiz> {
                             selected = item;
                           },
                           child: Card(
-                            color: selected == item ? Colors.blue : Colors.red,
+                            color: selected == item
+                                ? Colors.blue
+                                : Colors.amber,
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                  "${index + 1}. ${quizData["questions"][count]["options"][index]["description"]} "),
+                                "${index + 1}. ${quizData["questions"][count]["options"][index]["description"]} ",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white),
+                              ),
                             ),
                           ),
                         );
@@ -156,9 +169,20 @@ class _QuizState extends State<Quiz> {
                             context.goNamed('score', extra: score);
                           }
                         },
-                        child: Text(count < (quizData["questions"].length - 1)
-                            ? "Next"
-                            : "Submit")),
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor:
+                              const Color.fromARGB(255, 82, 82, 82),
+                          elevation: 10,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(12.0),
+                          child: Text(
+                            count < (quizData["questions"].length - 1)
+                                ? "Next Question"
+                                : "Submit",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )),
                   ),
                 )
               ],
