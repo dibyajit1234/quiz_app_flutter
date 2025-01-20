@@ -15,7 +15,8 @@ class Answers extends StatelessWidget {
         leading: IconButton(
             onPressed: () => context.pop(), icon: Icon(Icons.arrow_back)),
       ),
-      body: Expanded(
+      body: Padding(
+          padding: EdgeInsets.all(2),
           child: ListView.builder(
               itemCount: data.length,
               itemBuilder: (context, index) {
@@ -38,9 +39,11 @@ class Answers extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: [
-                                Icon(data[index]['correct'] == 0
+                                Icon(data[index]['correct'] == 0 &&
+                                        data[index]['selected'] == 0
                                     ? Icons.check
-                                    : data[index]['selected'] == 0
+                                    : data[index]['selected'] == 0 &&
+                                            data[index]['correct'] != 0
                                         ? Icons.close
                                         : Icons.circle_outlined),
                                 Card(
@@ -65,9 +68,11 @@ class Answers extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: [
-                                Icon(data[index]['correct'] == 1
+                                Icon(data[index]['correct'] == 1 &&
+                                        data[index]['selected'] == 1
                                     ? Icons.check
-                                    : data[index]['selected'] == 1
+                                    : data[index]['selected'] == 1 &&
+                                            data[index]['correct'] != 1
                                         ? Icons.close
                                         : Icons.circle_outlined),
                                 Card(
@@ -94,9 +99,11 @@ class Answers extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: [
-                                Icon(data[index]['correct'] == 2
+                                Icon(data[index]['correct'] == 2 &&
+                                        data[index]['selected'] == 2
                                     ? Icons.check
-                                    : data[index]['selected'] == 2
+                                    : data[index]['selected'] == 2 &&
+                                            data[index]['correct'] != 2
                                         ? Icons.close
                                         : Icons.circle_outlined),
                                 Card(
@@ -121,9 +128,11 @@ class Answers extends StatelessWidget {
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
                               children: [
-                                Icon(data[index]['correct'] == 3
+                                Icon(data[index]['correct'] == 3 &&
+                                        data[index]['selected'] == 3
                                     ? Icons.check
-                                    : data[index]['selected'] == 3
+                                    : data[index]['selected'] == 3 &&
+                                            data[index]['correct'] != 3
                                         ? Icons.close
                                         : Icons.circle_outlined),
                                 Card(
@@ -135,7 +144,7 @@ class Answers extends StatelessWidget {
                                           : Colors.grey,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text("4..${data[index]["opt4"]}",
+                                    child: Text("4.${data[index]["opt4"]}",
                                         style: TextStyle(
                                             color: Colors.white,
                                             fontWeight: FontWeight.bold)),
