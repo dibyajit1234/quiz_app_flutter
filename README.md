@@ -19,6 +19,10 @@ Getting Started:-
 Installation:-
 
 1. Clone the repository:
+
+git clone https://github.com/dibyajit1234/quiz_app_flutter.git
+cd quiz_app
+
 2. Install dependencies:
 3. Run the app
 
@@ -43,3 +47,5 @@ Main Files:-
 5. pages/quiz.dart: The quiz page where users answer questions.
 6. pages/result_page.dart: The result page that displays the user's score.
 7. pages/answers.dart: The answers page that shows the correct and incorrect answers.
+
+
